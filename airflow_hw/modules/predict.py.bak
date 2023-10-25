@@ -1,0 +1,17 @@
+import joblib
+import os
+
+
+path = os.environ.get('PROJECT_PATH', '.')
+def predict():
+    filename = f'{path}/data/models/cars_pipe_202310221633.pkl'
+    files_directory = f'{path}/data/test'
+    files_list = os.listdir(files_directory)
+    print(files_list)
+    for name in files_list:
+        print(files_directory + '/' + name)
+    model = joblib.load(filename)
+
+
+if __name__ == '__main__':
+    predict()
